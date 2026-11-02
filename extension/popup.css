@@ -1,0 +1,44 @@
+:root {
+  color-scheme: dark;
+  --bg: #14151a; --card:#1c1e26; --line:#2f323d; --text:#e9ebf0;
+  --muted:#9aa0ad; --accent:#ffd400; --accent2:#7aa2ff;
+}
+* { box-sizing: border-box; }
+body { width: 300px; margin: 0; background: var(--bg); color: var(--text);
+  font: 13px/1.45 system-ui, -apple-system, Segoe UI, sans-serif; padding: 12px; }
+header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+header img { border-radius: 6px; }
+h1 { font-size: 14px; margin: 0; }
+section { margin-bottom: 12px; }
+.label { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+
+.seg { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { flex: 1; appearance: none; border: 0; background: #23262f; color: var(--text);
+  padding: 8px 0; font-weight: 600; cursor: pointer; border-right: 1px solid var(--line); }
+.seg button:last-child { border-right: 0; }
+.seg button:hover { background: #2b2f3a; }
+.seg button.active { background: var(--accent); color: #1b1b1b; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+.field { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--muted); }
+.field.chk { justify-content: flex-start; }
+.field input[type="color"] { width: 40px; height: 24px; padding: 0; border: 1px solid var(--line);
+  background: none; border-radius: 5px; cursor: pointer; }
+.chk { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.sites { display: flex; gap: 12px; }
+
+.stats { display: flex; gap: 8px; }
+.stat { flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 7px 8px; text-align: center; }
+.stat .n { font-size: 15px; font-weight: 800; }
+.stat .l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .3px; }
+
+.page { background: #0f1014; border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; color: var(--muted); font-size: 12px; }
+.page b { color: var(--text); }
+
+footer { }
+.btn { width: 100%; appearance: none; border: 1px solid var(--line); background: #262933;
+  color: var(--text); padding: 9px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.btn.primary { background: var(--accent); color: #1b1b1b; border-color: var(--accent); }
+.btn.primary:hover { filter: brightness(1.05); }

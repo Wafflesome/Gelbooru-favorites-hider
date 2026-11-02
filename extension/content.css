@@ -1,0 +1,109 @@
+/* Booru Favorites Highlighter - content styles
+   Uses outline + box-shadow (never border) so the site's own indicators,
+   e.g. Gelbooru's blue "this is a video" border, stay visible underneath. */
+
+:root {
+  --bfh-color: #ffd400;
+  --bfh-tint: rgba(255, 212, 0, 0.16);
+}
+
+/* ---- HIGHLIGHT ---- */
+.bfh-fav.bfh-mode-highlight {
+  position: relative;
+  outline: 4px solid var(--bfh-color) !important;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.35),
+    0 0 14px 2px var(--bfh-color) !important;
+  border-radius: 3px;
+  background-color: var(--bfh-tint) !important;
+  z-index: 1;
+}
+
+/* small corner "FAV" tag in highlight mode */
+.bfh-fav.bfh-mode-highlight::after {
+  content: "\2665 FAV";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font: 700 10px/1 system-ui, sans-serif;
+  letter-spacing: 0.3px;
+  color: #1b1b1b;
+  background: var(--bfh-color);
+  padding: 2px 5px;
+  border-radius: 3px 0 6px 0;
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* ---- HIDE (dim in place, keeps grid layout stable) ---- */
+.bfh-fav.bfh-mode-hide {
+  position: relative;
+  opacity: 0.12 !important;
+  filter: grayscale(100%) !important;
+  transition: opacity 0.12s ease, filter 0.12s ease;
+}
+.bfh-fav.bfh-mode-hide::after {
+  content: attr(data-bfh-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 10px/1.2 system-ui, sans-serif;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+}
+.bfh-fav.bfh-mode-hide.bfh-reveal:hover {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* ---- REMOVE ---- */
+.bfh-fav.bfh-mode-remove {
+  display: none !important;
+}
+
+/* ---- On-page status badge ---- */
+.bfh-badge-el {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 10px;
+  font: 600 12px/1 system-ui, -apple-system, sans-serif;
+  color: #f2f2f2;
+  background: #1c1e26;
+  border: 1px solid #33363f;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  user-select: none;
+}
+.bfh-badge-el .bfh-badge-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bfh-color);
+  box-shadow: 0 0 6px var(--bfh-color);
+  flex: none;
+}
+.bfh-badge-el[data-bfh-mode="hide"] .bfh-badge-dot { background: #7aa2ff; box-shadow: 0 0 6px #7aa2ff; }
+.bfh-badge-el[data-bfh-mode="remove"] .bfh-badge-dot { background: #ff6a6e; box-shadow: 0 0 6px #ff6a6e; }
+.bfh-badge-el .bfh-badge-text { white-space: nowrap; }
+.bfh-badge-el .bfh-badge-btn {
+  appearance: none;
+  border: 1px solid #3c4150;
+  background: #2a2d38;
+  color: #dfe2ea;
+  font: 600 11px/1 system-ui, sans-serif;
+  padding: 4px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.bfh-badge-el .bfh-badge-btn:hover { background: #343846; }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booru Favorites Highlighter - Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="icons/icon48.png" alt="" width="36" height="36" />
+      <div>
+        <h1>Booru Favorites Highlighter</h1>
+        <p class="sub">Point the extension at your offline favorite archives. It reads the post IDs and matches them while you browse.</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>1 &nbsp;Archive folders</h2>
+      <p class="muted">
+        Add the folders where your downloaded favorites live &mdash; e.g.
+        <code>D:\boorus\rule34 favorites</code> and
+        <code>D:\boorus\gelbooru danbooru favorites</code>.
+        The extension only reads folder names and the small info text files; nothing leaves your computer.
+      </p>
+      <div class="row">
+        <button id="addFolder" class="btn primary">+ Add archive folder</button>
+        <span id="fsaWarn" class="warn" hidden>Your browser blocked folder access. Use the Import option below instead.</span>
+      </div>
+      <ul id="folderList" class="folders"></ul>
+    </section>
+
+    <section class="card">
+      <h2>2 &nbsp;Scan</h2>
+      <div class="row">
+        <button id="scan" class="btn primary" disabled>Scan / Rescan favorites</button>
+        <label class="chk"><input type="checkbox" id="fullRescan" /> Full rescan (ignore cache)</label>
+      </div>
+      <div id="progress" class="progress" hidden>
+        <div class="bar"><div id="barFill"></div></div>
+        <div id="progressText" class="muted"></div>
+      </div>
+      <div id="counts" class="counts"></div>
+      <p class="muted saved-note">Scans are saved automatically inside the extension and remembered across browser restarts, reboots, and extension reloads. You never need to back anything up for normal use.</p>
+    </section>
+
+    <section class="card">
+      <h2>3 &nbsp;Backup &amp; import <span class="muted">(optional — not needed for normal use)</span></h2>
+      <p class="muted">Only useful for moving your list to another PC, or keeping a copy in case you ever fully uninstall the extension. Export your scanned IDs as JSON, or import one (e.g. built by the included <code>scanner</code> script) if you'd rather not use in-browser folder access.</p>
+      <div class="row">
+        <button id="export" class="btn">Export favorites.json</button>
+        <button id="importBtn" class="btn">Import favorites.json</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden />
+        <button id="clearData" class="btn danger">Clear all scanned data</button>
+      </div>
+    </section>
+
+    <p id="status" class="status" aria-live="polite"></p>
+    <footer class="muted">Settings for display (colors, hide/remove mode) live in the toolbar popup.</footer>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

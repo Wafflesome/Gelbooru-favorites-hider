@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>Booru Favorites Highlighter</title>
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" width="26" height="26" alt="" />
+    <h1>Favorites Highlighter</h1>
+  </header>
+
+  <section>
+    <div class="label">When a post is already favorited:</div>
+    <div class="seg" id="mode">
+      <button data-mode="highlight">Highlight</button>
+      <button data-mode="hide">Hide</button>
+      <button data-mode="remove">Remove</button>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <label class="field">
+      <span>Highlight color</span>
+      <input type="color" id="color" value="#ffd400" />
+    </label>
+    <label class="field chk">
+      <input type="checkbox" id="tint" />
+      <span>Background tint</span>
+    </label>
+    <label class="field chk">
+      <input type="checkbox" id="showBadge" />
+      <span>On-page badge</span>
+    </label>
+    <label class="field chk">
+      <input type="checkbox" id="revealOnHover" />
+      <span>Reveal hidden on hover</span>
+    </label>
+  </section>
+
+  <section>
+    <div class="label">Enabled on:</div>
+    <div class="sites">
+      <label class="chk"><input type="checkbox" id="site_gelbooru" /><span>Gelbooru</span></label>
+      <label class="chk"><input type="checkbox" id="site_danbooru" /><span>Danbooru</span></label>
+      <label class="chk"><input type="checkbox" id="site_rule34" /><span>Rule34</span></label>
+    </div>
+  </section>
+
+  <section class="stats" id="stats"></section>
+  <section class="page" id="pageInfo"></section>
+
+  <footer>
+    <button id="rescan" class="btn primary">Manage archives / Rescan</button>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>
