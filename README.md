@@ -32,11 +32,21 @@ the toolbar popup (mode, highlight color, per-site on/off, and more).
 
 ## Screenshots
 
-<!-- Add screenshots to a docs/ folder and reference them here, e.g.:
-![Highlight mode](docs/highlight.png)
--->
+**Highlight mode** — already-favorited posts get a colored outline and a `♥ FAV` tag, so they stay visible but obvious:
 
-_Coming soon._
+![Highlight mode](docs/highlight.jpg)
+
+**The controls** live in the toolbar popup — switch between Highlight / Hide / Remove, change the color, and toggle each site. The counter shows how many posts on the page you've already saved:
+
+![Highlight mode with the popup controls](docs/highlight-popup.jpg)
+
+**Hide mode** — favorited posts are dimmed out of the way (hover to reveal):
+
+![Hide mode](docs/hide.jpg)
+
+**Remove mode** — favorited posts are dropped from the grid entirely, leaving only new content:
+
+![Remove mode](docs/remove.jpg)
 
 ## Install (Load Unpacked)
 
